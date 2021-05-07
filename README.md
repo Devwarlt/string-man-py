@@ -1,5 +1,5 @@
 # string-man-py [![license-badge]][license]
-String manipulation using Python.
+String manipulation using Python with Flask framework.
 
 ## Languages
 ![py-language-badge]
