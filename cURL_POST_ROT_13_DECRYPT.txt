@@ -1,0 +1,8 @@
+{
+    "method": "POST",
+    "response": {
+        "plain_text": "Hello, world!",
+        "rot13_encrypted_text": "Uryyb, jbeyq!"
+    },
+    "status": 200
+}
