@@ -27,7 +27,7 @@ curl --header "Content-Type: application/json" --request POST --data '{"\"plain_
 ### cURL -> POST ROT-13 Decrypt
 
 ```shell
-curl --header "Content-Type: application/json" --request POST --data '{"\"rot13_encrypted_text"\":"\"Uryyb, jbeyq!"\"}' http://127.0.0.1:3200/rot13/decrypt | python -m json.tool` | **POST** | `/rot13/decrypt
+curl --header "Content-Type: application/json" --request POST --data '{"\"rot13_encrypted_text"\":"\"Uryyb, jbeyq!"\"}' http://127.0.0.1:3200/rot13/decrypt | python -m json.tool
 ```
 
 ---
