@@ -12,3 +12,9 @@ def outshine_handler() -> tuple:
     if status != 200:
         return "<h1>Internal Server Error</h1>", 500
     return result, 200
+
+
+@cross_origin()
+@app.route('/teste', methods=['GET', 'POST'])
+def teste_handler() -> tuple:
+    return "Hello, world!", 200

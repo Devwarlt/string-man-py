@@ -1,4 +1,5 @@
 from flask.wrappers import Request
+from flask import jsonify
 from repositories import text_repository
 from traceback import format_exc
 from json import loads
@@ -11,7 +12,10 @@ def text_out(req: Request) -> tuple:
         enter_text: str = body.get('text')
         enter_words: list = body.get('wordlist')
         send_text: str = text_repository.text_out(enter_text, enter_words)
-        return send_text, 200
+        return jsonify({
+            'status': 200,
+            'response': send_text
+        }), 200
     except Exception:
         logging.getLogger(__name__).error(format_exc())
         return "Internal Server Error", 500
