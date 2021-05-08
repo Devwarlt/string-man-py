@@ -13,5 +13,5 @@ logging.basicConfig(
 
 if __name__ == '__main__':
     import routes
-    app.run(port=3200)
+    app.run(host='0.0.0.0', port=3200)
     logging.getLogger(__name__).info("Server is running")

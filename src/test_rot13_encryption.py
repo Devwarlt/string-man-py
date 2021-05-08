@@ -1,4 +1,4 @@
-from encryption.rot13 import Rot13
+from repositories.rot13_repository import Rot13
 from sys import exit
 
 

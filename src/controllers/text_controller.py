@@ -6,16 +6,28 @@ from json import loads
 import logging
 
 
-def text_out(req: Request) -> tuple:
+def text_out(request: Request) -> str:
+    result: dict = {}
     try:
-        body: dict = loads(req.data.decode('utf-8'))
+        decoded_data: str = request.data.decode('utf-8')
+        if decoded_data.startswith("\'")\
+                and decoded_data.endswith("\'"):
+            decoded_data = decoded_data[1:-1]
+
+        body: dict = loads(decoded_data)
         enter_text: str = body.get('text')
         enter_words: list = body.get('wordlist')
         send_text: str = text_repository.text_out(enter_text, enter_words)
-        return jsonify({
+        result.update({
             'status': 200,
             'response': send_text
-        }), 200
+        })
     except Exception:
-        logging.getLogger(__name__).error(format_exc())
-        return "Internal Server Error", 500
+        stacktrace: str = format_exc()
+        logging.getLogger(__name__).error(stacktrace)
+        result.update({
+            'status': 500,
+            'response': "Internal Server Error",
+            'stacktrace': stacktrace
+        })
+    return jsonify(result)
