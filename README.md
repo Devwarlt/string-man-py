@@ -4,14 +4,33 @@ String manipulation using Python with Flask framework.
 ## Languages
 ![py-language-badge]
 
-## Testes
+## Tests
 
-| cURL | Method | Endpoint | Payload |
-| --- | --- | --- | --- |
-| `curl --request GET http://127.0.0.1:3200/rot13/encrypt?plain_text=Hello,%20world! | python -m json.tool` | **GET** | `/rot13/encrypt` | `?plain_text=Hello,%20world!` |
-| `curl --request GET http://127.0.0.1:3200/rot13/decrypt?rot13_encrypted_text=Uryyb,%20jbeyq! | python -m json.tool` | **GET** | `/rot13/decrypt` | `?rot13_encrypted_text=Uryyb,%20jbeyq!` |
-| `curl --header "Content-Type: application/json" --request POST --data '{"\"plain_text"\":"\"Hello, world!"\"}' http://127.0.0.1:3200/rot13/encrypt | python -m json.tool` | **POST** | `/rot13/encrypt` | `{"plain_text":"Hello, world!"}` |
-| `curl --header "Content-Type: application/json" --request POST --data '{"\"rot13_encrypted_text"\":"\"Uryyb, jbeyq!"\"}' http://127.0.0.1:3200/rot13/decrypt | python -m json.tool` | **POST** | `/rot13/decrypt` | `{"rot13_encrypted_text":"Uryyb, jbeyq!"}` |
+### cURL -> GET ROT-13 Encrypt
+
+```shell
+curl --request GET http://127.0.0.1:3200/rot13/encrypt?plain_text=Hello,%20world! | python -m json.tool
+```
+
+### cURL -> GET ROT-13 Decrypt
+
+```shell
+curl --request GET http://127.0.0.1:3200/rot13/decrypt?rot13_encrypted_text=Uryyb,%20jbeyq! | python -m json.tool
+```
+
+### cURL -> POST ROT-13 Encrypt
+
+```shell
+curl --header "Content-Type: application/json" --request POST --data '{"\"plain_text"\":"\"Hello, world!"\"}' http://127.0.0.1:3200/rot13/encrypt | python -m json.tool
+```
+
+### cURL -> POST ROT-13 Decrypt
+
+```shell
+curl --header "Content-Type: application/json" --request POST --data '{"\"rot13_encrypted_text"\":"\"Uryyb, jbeyq!"\"}' http://127.0.0.1:3200/rot13/decrypt | python -m json.tool
+```
+
+---
 
 ### Contributors
 - Nádio ~ [@Devwarlt][nadio-ref]
